@@ -9,6 +9,7 @@ public class movePlayer : MonoBehaviour
     public float jumpStrenght;
     public bool isPlayerAlive = true;
     public bool isOnGround = true;
+    public Vector3 PlayerPosition;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +21,7 @@ public class movePlayer : MonoBehaviour
     void Update()
     {
 
+        PlayerPosition = transform.position;
         //Permet au joueur de sauter
         if (Input.GetKeyDown(KeyCode.Space) == true && isOnGround == true)
         {
