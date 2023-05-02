@@ -5,23 +5,24 @@ using UnityEngine;
 public class obstacle : MonoBehaviour
 {
 
+    public float moveSpeed;
     public float deadZone;
 
     // Start is called before the first frame update
     void Start()
     {
+        moveSeed = 5f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position = transform.position + (Vector3.left * GameManager.instance.globalSpeed) * Time.deltaTime;
+        transform.position = transform.position + (Vector3.left * moveSpeed) * Time.deltaTime;
 
         //Pour détruire les objets
         if (transform.position.x < deadZone)
         {
             Destroy(gameObject);
         }
-
     }
 }
