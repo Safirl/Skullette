@@ -6,25 +6,52 @@ public class CameraController : MonoBehaviour
 {
 
     public movePlayer movePlayer;
-    public float topPosition = 5.5f;
+
+    //limite de la position du joueur
+    private float skyPosition = 8.4f;
+    private float groundPosition = -1f;
+
+    public int axe = 1;
+
+
+    //Position de la caméra
+    private float topAxesPosition = 12f;
+    private float middleAxesPosition = 3.6f;
+    private float bottomAxesPosition = -5f;
+
+
+
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        transform.position = new Vector3(transform.position.x, middleAxesPosition, transform.position.z);
+        axe = 1;
     }
 
     // Update is called once per frame
     void Update()
     {
-        CameraUp();
+        MoveCamera();
     }
 
-    void CameraUp()
+    void MoveCamera()
     {
-        if (movePlayer.PlayerPosition.y > topPosition) {
-            Debug.Log("moving up!");
-            transform.position = new Vector3(transform.position.x, 6.5f, transform.position.z);
+        if (movePlayer.PlayerPosition.y < skyPosition && movePlayer.PlayerPosition.y > groundPosition)
+        {
+            axe = 1;
+            transform.position = new Vector3(transform.position.x, middleAxesPosition, transform.position.z);
+        }
+
+        if (movePlayer.PlayerPosition.y > skyPosition) {
+            axe = 2;
+            transform.position = new Vector3(transform.position.x, topAxesPosition, transform.position.z);
+        }
+
+        if (movePlayer.PlayerPosition.y < groundPosition)
+        {
+            axe = 0;
+            transform.position = new Vector3(transform.position.x, bottomAxesPosition, transform.position.z);
         }
     }
 }

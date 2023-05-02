@@ -7,7 +7,6 @@ public class SpawnManager : MonoBehaviour
     public GameObject[] obstaclePrefabs;
     public float startDelay = 0f;
     public float spawnInterval = 0f;
-    public int Axes = 1;
     public float tutorialTime;
 
     // Start is called before the first frame update
