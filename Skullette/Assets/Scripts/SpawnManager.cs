@@ -7,6 +7,8 @@ public class SpawnManager : MonoBehaviour
     public GameObject[] obstaclePrefabs;
     public float startDelay = 0f;
     public float spawnInterval = 0f;
+    public int Axes = 1;
+    public float tutorialTime;
 
     // Start is called before the first frame update
     void Start()
@@ -17,7 +19,7 @@ public class SpawnManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        tutorialTime += Time.deltaTime;
     }
 
     void SpawnObstacles()
@@ -25,9 +27,17 @@ public class SpawnManager : MonoBehaviour
         int obstacleIndex = Random.Range(0, obstaclePrefabs.Length);
 
 
-        Vector3 spawnPos = new Vector3(10, 0.5f, 0);
+        //to spawn 
+        if (obstacleIndex == 1 && tutorialTime < 4f)
+        {
+            SpawnObstacles();
+        }
 
-        Instantiate(obstaclePrefabs[obstacleIndex], spawnPos, obstaclePrefabs[obstacleIndex].transform.rotation);
 
+        else
+        {
+            Vector3 spawnPos = new Vector3(10, 0.5f, 0);
+            Instantiate(obstaclePrefabs[obstacleIndex], spawnPos, obstaclePrefabs[obstacleIndex].transform.rotation);
+        }
     }
 }

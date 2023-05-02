@@ -193,7 +193,6 @@ GameObject:
   - component: {fileID: 292155328}
   - component: {fileID: 292155327}
   - component: {fileID: 292155330}
-  - component: {fileID: 292155331}
   m_Layer: 0
   m_Name: Obstacle
   m_TagString: Obstacle
@@ -287,7 +286,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 292155326}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.9, y: 0.24, z: 0}
+  m_LocalPosition: {x: 0.33, y: 0.24, z: 0}
   m_LocalScale: {x: 1, y: 1.6625, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -307,30 +306,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff478698c6ea94b3bb5f0c26892f6c61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 10
+  moveSpeed: 1
   deadZone: -10
-  obstacleRigidBody: {fileID: 292155331}
---- !u!50 &292155331
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 292155326}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 1
-  m_Constraints: 4
 --- !u!1 &462997656
 GameObject:
   m_ObjectHideFlags: 0
@@ -377,8 +354,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obstaclePrefabs:
   - {fileID: 292155326}
+  - {fileID: 1086394769}
   startDelay: 0
-  spawnInterval: 0
+  spawnInterval: 2
+  Axes: 1
+  tutorialTime: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -391,6 +371,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420033}
+  - component: {fileID: 519420034}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -478,6 +459,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movePlayer: {fileID: 1228262338}
   topPosition: 5.5
+--- !u!114 &519420034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72ece51f2901e7445ab60da3685d6b5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShowDebugText: 0
+  m_ShowCameraFrustum: 1
+  m_IgnoreTimeScale: 0
+  m_WorldUpOverride: {fileID: 0}
+  m_UpdateMethod: 2
+  m_BlendUpdateMethod: 1
+  m_DefaultBlend:
+    m_Style: 1
+    m_Time: 2
+    m_CustomCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  m_CustomBlends: {fileID: 0}
+  m_CameraCutEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_CameraActivatedEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1086394769
 GameObject:
   m_ObjectHideFlags: 0
@@ -490,7 +505,6 @@ GameObject:
   - component: {fileID: 1086394770}
   - component: {fileID: 1086394772}
   - component: {fileID: 1086394773}
-  - component: {fileID: 1086394774}
   m_Layer: 7
   m_Name: Platform
   m_TagString: Ground
@@ -558,7 +572,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1086394769}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: 0.31, z: 0}
+  m_LocalPosition: {x: 4.87, y: 0.31, z: 0}
   m_LocalScale: {x: 6.92875, y: 3.033125, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -605,30 +619,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff478698c6ea94b3bb5f0c26892f6c61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 2
   deadZone: -13
-  obstacleRigidBody: {fileID: 1086394774}
---- !u!50 &1086394774
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1086394769}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 6
 --- !u!1 &1228262333
 GameObject:
   m_ObjectHideFlags: 0
