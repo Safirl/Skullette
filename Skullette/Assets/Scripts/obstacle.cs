@@ -10,7 +10,6 @@ public class obstacle : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameManager.instance.globalSpeed = 5f;
     }
 
     // Update is called once per frame
@@ -23,5 +22,6 @@ public class obstacle : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
     }
 }
