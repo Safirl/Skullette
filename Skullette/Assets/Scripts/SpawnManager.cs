@@ -28,7 +28,7 @@ public class SpawnManager : MonoBehaviour
 
 
         //to spawn 
-        if (obstacleIndex == 1 && tutorialTime < 4f)
+        if (obstacleIndex == 1 && tutorialTime < 15f)
         {
             SpawnObstacles();
         }
@@ -38,6 +38,12 @@ public class SpawnManager : MonoBehaviour
         {
             Vector3 spawnPos = new Vector3(10, 0.5f, 0);
             Instantiate(obstaclePrefabs[obstacleIndex], spawnPos, obstaclePrefabs[obstacleIndex].transform.rotation);
+
+                if (obstacleIndex == 1)
+            {
+
+                tutorialTime = 0f;
+            }
         }
     }
 }
