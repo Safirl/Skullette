@@ -125,6 +125,7 @@ MonoBehaviour:
   isPlayerAlive: 1
   isOnGround: 1
   PlayerPosition: {x: 0, y: 0, z: 0}
+  logicScript: {fileID: 0}
 --- !u!58 &8368857551768284017
 CircleCollider2D:
   m_ObjectHideFlags: 0

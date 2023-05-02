@@ -10,12 +10,11 @@ public class movePlayer : MonoBehaviour
     public bool isPlayerAlive = true;
     public bool isOnGround = true;
     public Vector3 PlayerPosition;
-    public LogicScript logicScript;
 
     // Start is called before the first frame update
     void Start()
     {
-        isPlayerAlive = true; 
+        
     }
 
     // Update is called once per frame
@@ -38,11 +37,18 @@ public class movePlayer : MonoBehaviour
         if (collision.collider.CompareTag("Obstacle")) {
             Debug.Log("You're dead");
             isPlayerAlive = false;
-            logicScript.Death();
         }
 
         else if (collision.collider.CompareTag("Ground")) {
             isOnGround = true;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Obstacle")
+        {
+            Destroy(collision.gameObject);
         }
     }
 }
