@@ -29,4 +29,9 @@ public class LogicScript : MonoBehaviour
     {
         SceneManager.LoadScene(1);
     }
+
+    public void BackToMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
 }
