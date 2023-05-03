@@ -5,7 +5,7 @@ using UnityEngine;
 public class obstacle : MonoBehaviour
 {
 
-    public float deadZone;
+    private float deadZone = -13;
     public Rigidbody2D MyRigidbody2D;
 
     // Start is called before the first frame update

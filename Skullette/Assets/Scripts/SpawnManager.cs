@@ -10,8 +10,10 @@ public class SpawnManager : MonoBehaviour
     private float startDelay = 0f;
     private float spawnInterval = 1f;
     private float timer;
-    public float noPlatformTime = 1f;
-
+    private float bonusTimer = 0f;
+    private float noPlatformTime = 10f;
+    public float noBonusTime = 20f;
+    
     float posSpawner;
 
 
@@ -24,7 +26,16 @@ public class SpawnManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timer += Time.deltaTime;
+        if (movePlayer.isPlayerAlive)
+        {
+            timer += Time.deltaTime;
+            bonusTimer += Time.deltaTime;
+        }
+        else
+        {
+            timer = 0;
+            bonusTimer = 0;
+        }
     }
 
 
@@ -37,6 +48,10 @@ public class SpawnManager : MonoBehaviour
 
             //to spawn 
             if ((obstacleIndex == 1 || obstacleIndex == 2) && timer < noPlatformTime)
+            {
+                SpawnSequence();
+            }
+            else if ((obstacleIndex == 4 || obstacleIndex == 5) && bonusTimer < noBonusTime)
             {
                 SpawnSequence();
             }
@@ -90,6 +105,10 @@ public class SpawnManager : MonoBehaviour
         if (obstacleIndex == 1 || obstacleIndex == 2)
         {
             timer = 0f;
+        }
+        if (obstacleIndex == 4 || obstacleIndex == 5)
+        {
+            bonusTimer = 0f;
         }
     }
 }
