@@ -7,6 +7,7 @@ TagManager:
   - Obstacle
   - Ground
   - GameOver
+  - Platform
   layers:
   - Default
   - TransparentFX
@@ -46,4 +47,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 4085607275
+    locked: 0
+  - name: Ground
+    uniqueID: 3813344135
     locked: 0

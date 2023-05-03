@@ -12,6 +12,8 @@ public class movePlayer : MonoBehaviour
     public Vector3 PlayerPosition;
     public LogicScript logicScript;
 
+    private float bottomAxesPosition = -3f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,6 +44,14 @@ public class movePlayer : MonoBehaviour
 
         else if (collision.collider.CompareTag("Ground")) {
             isOnGround = true;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Platform"))
+        {
+            transform.position = new Vector3(transform.position.x, bottomAxesPosition, transform.position.z);
         }
     }
 }

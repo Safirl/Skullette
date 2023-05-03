@@ -18,6 +18,7 @@ public class CameraController : MonoBehaviour
     private float topAxesPosition = 12f;
     private float middleAxesPosition = 3.6f;
     private float bottomAxesPosition = -5f;
+    public float cameraSpeed = 1f;
 
 
 
@@ -40,7 +41,14 @@ public class CameraController : MonoBehaviour
         if (movePlayer.PlayerPosition.y < skyPosition && movePlayer.PlayerPosition.y > groundPosition)
         {
             axe = 1;
-            transform.position = new Vector3(transform.position.x, middleAxesPosition, transform.position.z);
+            if (transform.position.y > middleAxesPosition)
+            {
+                transform.Translate(Vector3.down * cameraSpeed * Time.deltaTime);
+            }
+            if (transform.position.y < middleAxesPosition)
+            {
+                transform.Translate(Vector3.up * cameraSpeed * Time.deltaTime);
+            }
         }
 
         if (movePlayer.PlayerPosition.y > skyPosition) {

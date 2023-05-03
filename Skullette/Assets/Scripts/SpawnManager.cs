@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
+    public movePlayer movePlayer;
+
     public GameObject[] obstaclePrefabs;
     public float startDelay = 0f;
     public float spawnInterval = 0f;
@@ -12,16 +14,19 @@ public class SpawnManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("SpawnObstacles", startDelay, spawnInterval);
+        InvokeRepeating("SpawnSequence", startDelay, spawnInterval);
     }
 
     // Update is called once per frame
     void Update()
     {
         tutorialTime += Time.deltaTime;
+        moveSpawner();
     }
 
-    void SpawnObstacles()
+
+    //Spawn une séquence d'obstacles
+    void SpawnSequence()
     {
         int obstacleIndex = Random.Range(0, obstaclePrefabs.Length);
 
@@ -29,20 +34,29 @@ public class SpawnManager : MonoBehaviour
         //to spawn 
         if (obstacleIndex == 1 && tutorialTime < 15f)
         {
-            SpawnObstacles();
+            SpawnSequence();
         }
 
 
         else
         {
-            Vector3 spawnPos = new Vector3(10, 0.5f, 0);
-            Instantiate(obstaclePrefabs[obstacleIndex], spawnPos, obstaclePrefabs[obstacleIndex].transform.rotation);
-
-                if (obstacleIndex == 1)
+            if (GameManager.instance.axe == 1)
             {
+                Vector3 spawnPos = new Vector3(20, 0.23f, 0);
+                Instantiate(obstaclePrefabs[obstacleIndex], spawnPos, obstaclePrefabs[obstacleIndex].transform.rotation);
 
-                tutorialTime = 0f;
+                    if (obstacleIndex == 1)
+                {
+                    tutorialTime = 0f;
+                }
             }
         }
+    }
+
+    void moveSpawner()
+    {
+
+        
+
     }
 }
