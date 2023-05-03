@@ -12,7 +12,7 @@ public class SpawnManager : MonoBehaviour
     private float timer;
     public float noPlatformTime = 1f;
 
-    float posPlayer;
+    float posSpawner;
 
 
     // Start is called before the first frame update
@@ -45,15 +45,22 @@ public class SpawnManager : MonoBehaviour
         {
             if (GameManager.instance.axe == 1)
             {
-                posPlayer = 0.23f;
-                InstantiateSequence(obstacleIndex, posPlayer);
+                posSpawner = 0.23f;
+                InstantiateSequence(obstacleIndex, posSpawner);
                 
             }
 
             if (GameManager.instance.axe == 2)
             {
-                posPlayer = 9.135f;
-                InstantiateSequence(obstacleIndex, posPlayer);
+                if (obstacleIndex == 1)
+                {
+                    SpawnSequence();
+                }
+                else
+                {
+                    posSpawner = 9.135f;
+                    InstantiateSequence(obstacleIndex, posSpawner);
+                }
             }
 
             if (GameManager.instance.axe == 0)
@@ -65,17 +72,17 @@ public class SpawnManager : MonoBehaviour
                 }
                 else
                 {
-                    posPlayer = -8.96f;
-                    InstantiateSequence(obstacleIndex, posPlayer);
+                    posSpawner = -8.96f;
+                    InstantiateSequence(obstacleIndex, posSpawner);
                 }
             }
         }
     }
 
     //Génère une séquence en fonctione de l'axe
-    void InstantiateSequence(int obstacleIndex, float posPlayer)
+    void InstantiateSequence(int obstacleIndex, float posSpawner)
     {
-        Vector3 spawnPos = new Vector3(20, posPlayer, 0);
+        Vector3 spawnPos = new Vector3(20, posSpawner, 0);
         Instantiate(obstaclePrefabs[obstacleIndex], spawnPos, obstaclePrefabs[obstacleIndex].transform.rotation);
 
         if (obstacleIndex == 1 || obstacleIndex == 2)

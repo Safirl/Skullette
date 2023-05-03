@@ -47,8 +47,8 @@ MonoBehaviour:
   movePlayer: {fileID: 0}
   obstaclePrefabs:
   - {fileID: 7462896063978384374, guid: df90b56011f3147cd9bc9db2110a4fef, type: 3}
-  - {fileID: 1475336648600296397, guid: 6ae0759ffc4da410ca861966feaf1167, type: 3}
-  - {fileID: 8817917714200310448, guid: ded2f687385934bd38b014ca9edaf0bd, type: 3}
+  - {fileID: 876587348844575435, guid: 76c10707042744d84b63b52b5f29a3eb, type: 3}
+  - {fileID: 5158566727437719607, guid: 2b9a37414070f48fab6f18ad27eccb11, type: 3}
   startDelay: 0
   spawnInterval: 2
   noPlatformTime: 1

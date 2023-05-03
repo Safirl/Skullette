@@ -12,7 +12,8 @@ public class movePlayer : MonoBehaviour
     public Vector3 PlayerPosition;
     public LogicScript logicScript;
 
-    private float bottomAxesPosition = -3f;
+    private float bottomAxePosition = -3f;
+    private float middleAxePosition = 6.7f;
 
     // Start is called before the first frame update
     void Start()
@@ -51,7 +52,14 @@ public class movePlayer : MonoBehaviour
     {
         if (other.CompareTag("Platform"))
         {
-            transform.position = new Vector3(transform.position.x, bottomAxesPosition, transform.position.z);
+            if (GameManager.instance.axe == 1)
+            {
+                transform.position = new Vector3(transform.position.x, bottomAxePosition, transform.position.z);
+            }
+            else
+            {
+                transform.position = new Vector3(transform.position.x, middleAxePosition, transform.position.z);
+            }
         }
     }
 }
