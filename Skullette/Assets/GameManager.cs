@@ -56,11 +56,14 @@ public class GameManager : MonoBehaviour
 
     void speedAcceleration()
     {
-        timer += Time.deltaTime;
-        if (timer >= increaseSpeed)
+        if (movePlayer.isPlayerAlive == true)
         {
-            globalSpeed += 1;
-            timer = 0;
+            timer += Time.deltaTime;
+            if (timer >= increaseSpeed)
+            {
+                globalSpeed += 1;
+                timer = 0;
+            }
         }
     }
 }

@@ -31,49 +31,51 @@ public class SpawnManager : MonoBehaviour
     //Spawn une séquence d'obstacles
     void SpawnSequence()
     {
-        int obstacleIndex = Random.Range(0, obstaclePrefabs.Length);
+        if (movePlayer.isPlayerAlive == true) {
+            int obstacleIndex = Random.Range(0, obstaclePrefabs.Length);
 
 
-        //to spawn 
-        if ((obstacleIndex == 1 || obstacleIndex == 2) && timer < noPlatformTime)
-        {
-            SpawnSequence();
-        }
-
-
-        else
-        {
-            if (GameManager.instance.axe == 1)
+            //to spawn 
+            if ((obstacleIndex == 1 || obstacleIndex == 2) && timer < noPlatformTime)
             {
-                posSpawner = 0.23f;
-                InstantiateSequence(obstacleIndex, posSpawner);
-                
+                SpawnSequence();
             }
 
-            if (GameManager.instance.axe == 2)
-            {
-                if (obstacleIndex == 1)
-                {
-                    SpawnSequence();
-                }
-                else
-                {
-                    posSpawner = 9.135f;
-                    InstantiateSequence(obstacleIndex, posSpawner);
-                }
-            }
 
-            if (GameManager.instance.axe == 0)
+            else
             {
-
-                if (obstacleIndex == 2)
+                if (GameManager.instance.axe == 1)
                 {
-                    SpawnSequence();
-                }
-                else
-                {
-                    posSpawner = -8.96f;
+                    posSpawner = 0.23f;
                     InstantiateSequence(obstacleIndex, posSpawner);
+
+                }
+
+                if (GameManager.instance.axe == 2)
+                {
+                    if (obstacleIndex == 1)
+                    {
+                        SpawnSequence();
+                    }
+                    else
+                    {
+                        posSpawner = 9.135f;
+                        InstantiateSequence(obstacleIndex, posSpawner);
+                    }
+                }
+
+                if (GameManager.instance.axe == 0)
+                {
+
+                    if (obstacleIndex == 2)
+                    {
+                        SpawnSequence();
+                    }
+                    else
+                    {
+                        posSpawner = -8.96f;
+                        InstantiateSequence(obstacleIndex, posSpawner);
+                    }
                 }
             }
         }

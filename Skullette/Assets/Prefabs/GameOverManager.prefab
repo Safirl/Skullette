@@ -117,10 +117,10 @@ RectTransform:
   m_Father: {fileID: 5186242059656670408}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1177, y: 662}
+  m_SizeDelta: {x: 408, y: 228}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5186242059109673099
 CanvasRenderer:
@@ -706,7 +706,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 402866363994481628, guid: f78bc76fc8f364c85b5e4e58a3e2f7ab, type: 3}
         m_TargetAssemblyTypeName: LogicScript, Assembly-CSharp
-        m_MethodName: Restart
+        m_MethodName: BackToMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -23,6 +23,7 @@ public class LogicScript : MonoBehaviour
     {
         gameObject.SetActive(true);
         GameManager.instance.globalSpeed = 0f;
+
     }
 
     public void Restart()
