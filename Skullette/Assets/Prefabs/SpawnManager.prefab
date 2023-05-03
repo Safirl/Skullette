@@ -51,4 +51,4 @@ MonoBehaviour:
   - {fileID: 8817917714200310448, guid: ded2f687385934bd38b014ca9edaf0bd, type: 3}
   startDelay: 0
   spawnInterval: 2
-  tutorialTime: 0
+  noPlatformTime: 1

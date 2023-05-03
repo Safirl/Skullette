@@ -9,7 +9,11 @@ public class SpawnManager : MonoBehaviour
     public GameObject[] obstaclePrefabs;
     public float startDelay = 0f;
     public float spawnInterval = 0f;
-    public float tutorialTime;
+    private float timer;
+    public float noPlatformTime = 1f;
+
+    float posPlayer;
+
 
     // Start is called before the first frame update
     void Start()
@@ -20,8 +24,7 @@ public class SpawnManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        tutorialTime += Time.deltaTime;
-        moveSpawner();
+        timer += Time.deltaTime;
     }
 
 
@@ -32,7 +35,7 @@ public class SpawnManager : MonoBehaviour
 
 
         //to spawn 
-        if (obstacleIndex == 1 && tutorialTime < 15f)
+        if ((obstacleIndex == 1 || obstacleIndex == 2) && timer < noPlatformTime)
         {
             SpawnSequence();
         }
@@ -42,21 +45,42 @@ public class SpawnManager : MonoBehaviour
         {
             if (GameManager.instance.axe == 1)
             {
-                Vector3 spawnPos = new Vector3(20, 0.23f, 0);
-                Instantiate(obstaclePrefabs[obstacleIndex], spawnPos, obstaclePrefabs[obstacleIndex].transform.rotation);
+                posPlayer = 0.23f;
+                InstantiateSequence(obstacleIndex, posPlayer);
+                
+            }
 
-                    if (obstacleIndex == 1)
+            if (GameManager.instance.axe == 2)
+            {
+                posPlayer = 9.135f;
+                InstantiateSequence(obstacleIndex, posPlayer);
+            }
+
+            if (GameManager.instance.axe == 0)
+            {
+
+                if (obstacleIndex == 2)
                 {
-                    tutorialTime = 0f;
+                    SpawnSequence();
+                }
+                else
+                {
+                    posPlayer = -8.96f;
+                    InstantiateSequence(obstacleIndex, posPlayer);
                 }
             }
         }
     }
 
-    void moveSpawner()
+    //Génère une séquence en fonctione de l'axe
+    void InstantiateSequence(int obstacleIndex, float posPlayer)
     {
+        Vector3 spawnPos = new Vector3(20, posPlayer, 0);
+        Instantiate(obstaclePrefabs[obstacleIndex], spawnPos, obstaclePrefabs[obstacleIndex].transform.rotation);
 
-        
-
+        if (obstacleIndex == 1 || obstacleIndex == 2)
+        {
+            timer = 0f;
+        }
     }
 }
