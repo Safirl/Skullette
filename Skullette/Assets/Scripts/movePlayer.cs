@@ -15,6 +15,9 @@ public class movePlayer : MonoBehaviour
     private float bottomAxePosition = -3f;
     private float middleAxePosition = 6.7f;
 
+    [SerializeField] private Vector3 _rotation;
+    [SerializeField] private float _speed; 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +27,11 @@ public class movePlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (isPlayerAlive)
+        {
+            transform.Rotate(_rotation * _speed * Time.deltaTime);
+        }
 
         PlayerPosition = transform.position;
         //Permet au joueur de sauter

@@ -7,8 +7,8 @@ public class SpawnManager : MonoBehaviour
     public movePlayer movePlayer;
 
     public GameObject[] obstaclePrefabs;
-    public float startDelay = 0f;
-    public float spawnInterval = 2f;
+    private float startDelay = 0f;
+    private float spawnInterval = 1f;
     private float timer;
     public float noPlatformTime = 1f;
 
