@@ -6,6 +6,7 @@ public class obstacle : MonoBehaviour
 {
 
     public float deadZone;
+    public Rigidbody2D MyRigidbody2D;
 
     // Start is called before the first frame update
     void Start()
@@ -13,9 +14,10 @@ public class obstacle : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        transform.position = transform.position + (Vector3.left * GameManager.instance.globalSpeed) * Time.deltaTime;
+        MyRigidbody2D.MovePosition(MyRigidbody2D.position + Vector2.left * GameManager.instance.globalSpeed * Time.fixedDeltaTime);
+        //transform.position = transform.position + (Vector3.left * GameManager.instance.globalSpeed) * Time.deltaTime;
 
         //Pour détruire les objets
         if (transform.position.x < deadZone)
