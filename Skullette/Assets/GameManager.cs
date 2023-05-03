@@ -7,11 +7,14 @@ public class GameManager : MonoBehaviour
     public movePlayer movePlayer;
 
     public static GameManager instance = null;
-    public float globalSpeed = 5f;
+    public float globalSpeed = 1f;
     public int axe = 1;
 
     private float skyPosition = 8.4f;
     private float groundPosition = -1f;
+    public float timer;
+    public float increaseSpeed = 5f; 
+
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +23,7 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
         } else
+
         {
             Destroy(this);
         }
@@ -29,6 +33,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         playerPosition();
+        speedAcceleration();
     }
 
     void playerPosition ()
@@ -46,6 +51,16 @@ public class GameManager : MonoBehaviour
         if (movePlayer.PlayerPosition.y < groundPosition)
         {
             axe = 0;
+        }
+    }
+
+    void speedAcceleration()
+    {
+        timer += Time.deltaTime;
+        if (timer >= increaseSpeed)
+        {
+            globalSpeed += 1;
+            timer = 0;
         }
     }
 }
