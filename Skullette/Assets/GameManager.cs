@@ -8,11 +8,11 @@ public class GameManager : MonoBehaviour
 
     public static GameManager instance = null;
     public float globalSpeed = 1f;
-    public float groundSpeed = 2f;
+    public float groundSpeed;
     public int axe = 1;
 
-    private float skyPosition = 8.4f;
-    private float groundPosition = -1f;
+    public float skyPosition = 8.4f;
+    public float groundPosition = -1f;
     public float timer;
     public float increaseSpeed = 5f; 
 
@@ -59,12 +59,17 @@ public class GameManager : MonoBehaviour
     {
         if (movePlayer.isPlayerAlive == true)
         {
+            groundSpeed = 2f;
             timer += Time.deltaTime;
             if (timer >= increaseSpeed)
             {
                 globalSpeed += 1;
                 timer = 0;
             }
+        }
+        else
+        {
+            groundSpeed = 0f;
         }
     }
 }
