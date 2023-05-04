@@ -52,4 +52,9 @@ MonoBehaviour:
   - {fileID: 776984471040334226, guid: 94e2a2fb1828e461c88317b15ad09532, type: 3}
   - {fileID: 4405711761377723233, guid: 1062193c87b50486cb337482bbc0b063, type: 3}
   - {fileID: 5055010110918947298, guid: 98943dec4d11149e2a530b244a161fe8, type: 3}
+  skyGround:
+  - {fileID: 4698802360940357069, guid: fc207a2a8b439427f9004edf294cf679, type: 3}
   noBonusTime: 20
+  GroundDelay: 3
+  groundTimer: 0
+  groundPos: 7.79

@@ -7,13 +7,19 @@ public class SpawnManager : MonoBehaviour
     public movePlayer movePlayer;
 
     public GameObject[] obstaclePrefabs;
+    public GameObject[] skyGround;
+
     private float startDelay = 0f;
     private float spawnInterval = 1f;
     private float timer;
     private float bonusTimer = 0f;
     private float noPlatformTime = 10f;
     public float noBonusTime = 20f;
-    
+    public float GroundDelay;
+    public float groundTimer;
+    public float groundPos = 7.79f;
+
+
     float posSpawner;
 
 
@@ -30,11 +36,13 @@ public class SpawnManager : MonoBehaviour
         {
             timer += Time.deltaTime;
             bonusTimer += Time.deltaTime;
+            SpawnGround();
         }
         else
         {
             timer = 0;
             bonusTimer = 0;
+            groundTimer = 0;
         }
     }
 
@@ -109,6 +117,20 @@ public class SpawnManager : MonoBehaviour
         if (obstacleIndex == 4 || obstacleIndex == 5)
         {
             bonusTimer = 0f;
+        }
+    }
+
+
+    void SpawnGround()
+    {
+        GroundDelay = Random.Range(2f, 3f);
+        groundTimer += Time.deltaTime;
+        Vector3 spawnGroundPos = new Vector3(20, groundPos, 0);
+
+        if (groundTimer > GroundDelay)
+        {
+            Instantiate(skyGround[0], spawnGroundPos, obstaclePrefabs[0].transform.rotation);
+            groundTimer = 0f;
         }
     }
 }

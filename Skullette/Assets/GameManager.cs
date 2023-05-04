@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 
     public static GameManager instance = null;
     public float globalSpeed = 1f;
+    public float groundSpeed = 2f;
     public int axe = 1;
 
     private float skyPosition = 8.4f;

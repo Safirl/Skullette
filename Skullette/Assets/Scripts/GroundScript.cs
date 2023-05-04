@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class GroundScript : MonoBehaviour
 {
-    public CameraController cameraController;
 
-    public Collider2D myCollider;
+    public Rigidbody2D myRigidBody;
+    private float deadZone = -13;
+
 
     // Start is called before the first frame update
     void Start()
@@ -17,6 +18,7 @@ public class GroundScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        myRigidBody.MovePosition(myRigidBody.position + Vector2.left * GameManager.instance.groundSpeed * Time.fixedDeltaTime);
+
     }
 }
