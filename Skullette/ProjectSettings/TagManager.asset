@@ -8,6 +8,8 @@ TagManager:
   - Ground
   - GameOver
   - Platform
+  - SwitchBonus
+  - InvincibleBonus
   layers:
   - Default
   - TransparentFX

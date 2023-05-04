@@ -7,11 +7,13 @@ public class SpawnManager : MonoBehaviour
     public movePlayer movePlayer;
 
     public GameObject[] obstaclePrefabs;
-    public float startDelay = 0f;
-    public float spawnInterval = 2f;
+    private float startDelay = 0f;
+    private float spawnInterval = 1f;
     private float timer;
-    public float noPlatformTime = 1f;
-
+    private float bonusTimer = 0f;
+    private float noPlatformTime = 10f;
+    public float noBonusTime = 20f;
+    
     float posSpawner;
 
 
@@ -24,56 +26,71 @@ public class SpawnManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timer += Time.deltaTime;
+        if (movePlayer.isPlayerAlive)
+        {
+            timer += Time.deltaTime;
+            bonusTimer += Time.deltaTime;
+        }
+        else
+        {
+            timer = 0;
+            bonusTimer = 0;
+        }
     }
 
 
     //Spawn une séquence d'obstacles
     void SpawnSequence()
     {
-        int obstacleIndex = Random.Range(0, obstaclePrefabs.Length);
+        if (movePlayer.isPlayerAlive == true) {
+            int obstacleIndex = Random.Range(0, obstaclePrefabs.Length);
 
 
-        //to spawn 
-        if ((obstacleIndex == 1 || obstacleIndex == 2) && timer < noPlatformTime)
-        {
-            SpawnSequence();
-        }
-
-
-        else
-        {
-            if (GameManager.instance.axe == 1)
+            //to spawn 
+            if ((obstacleIndex == 1 || obstacleIndex == 2) && timer < noPlatformTime)
             {
-                posSpawner = 0.23f;
-                InstantiateSequence(obstacleIndex, posSpawner);
-                
+                SpawnSequence();
+            }
+            else if ((obstacleIndex == 4 || obstacleIndex == 5) && bonusTimer < noBonusTime)
+            {
+                SpawnSequence();
             }
 
-            if (GameManager.instance.axe == 2)
-            {
-                if (obstacleIndex == 1)
-                {
-                    SpawnSequence();
-                }
-                else
-                {
-                    posSpawner = 9.135f;
-                    InstantiateSequence(obstacleIndex, posSpawner);
-                }
-            }
 
-            if (GameManager.instance.axe == 0)
+            else
             {
-
-                if (obstacleIndex == 2)
+                if (GameManager.instance.axe == 1)
                 {
-                    SpawnSequence();
-                }
-                else
-                {
-                    posSpawner = -8.96f;
+                    posSpawner = 0.23f;
                     InstantiateSequence(obstacleIndex, posSpawner);
+
+                }
+
+                if (GameManager.instance.axe == 2)
+                {
+                    if (obstacleIndex == 1)
+                    {
+                        SpawnSequence();
+                    }
+                    else
+                    {
+                        posSpawner = 9.135f;
+                        InstantiateSequence(obstacleIndex, posSpawner);
+                    }
+                }
+
+                if (GameManager.instance.axe == 0)
+                {
+
+                    if (obstacleIndex == 2)
+                    {
+                        SpawnSequence();
+                    }
+                    else
+                    {
+                        posSpawner = -8.96f;
+                        InstantiateSequence(obstacleIndex, posSpawner);
+                    }
                 }
             }
         }
@@ -88,6 +105,10 @@ public class SpawnManager : MonoBehaviour
         if (obstacleIndex == 1 || obstacleIndex == 2)
         {
             timer = 0f;
+        }
+        if (obstacleIndex == 4 || obstacleIndex == 5)
+        {
+            bonusTimer = 0f;
         }
     }
 }

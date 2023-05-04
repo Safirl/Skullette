@@ -47,3 +47,5 @@ MonoBehaviour:
   movePlayer: {fileID: 0}
   globalSpeed: 5
   axe: 1
+  timer: 0
+  increaseSpeed: 5
