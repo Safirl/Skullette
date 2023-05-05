@@ -59,11 +59,15 @@ public class GameManager : MonoBehaviour
     {
         if (movePlayer.isPlayerAlive == true)
         {
-            groundSpeed = 2f;
+            groundSpeed = 3f;
             timer += Time.deltaTime;
-            if (timer >= increaseSpeed)
+            if (timer >= increaseSpeed && globalSpeed <= 22)
             {
                 globalSpeed += 1;
+                timer = 0;
+            }
+            else
+            {
                 timer = 0;
             }
         }
