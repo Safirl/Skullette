@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class CameraController : MonoBehaviour
 {
@@ -8,17 +9,14 @@ public class CameraController : MonoBehaviour
     public movePlayer movePlayer;
 
     //limite de la position du joueur
-    private float skyPosition = 8.4f;
-    private float groundPosition = -1f;
-
-    public int axe = 1;
 
 
     //Position de la caméra
     private float topAxesPosition = 12f;
     private float middleAxesPosition = 3.6f;
-    private float bottomAxesPosition = -5f;
+    private float bottomAxesPosition = -5.3f;
     public float cameraSpeed = 1f;
+    public float transitionTime = 1f;
 
 
 
@@ -27,7 +25,6 @@ public class CameraController : MonoBehaviour
     void Start()
     {
         transform.position = new Vector3(transform.position.x, middleAxesPosition, transform.position.z);
-        axe = 1;
     }
 
     // Update is called once per frame
@@ -38,28 +35,23 @@ public class CameraController : MonoBehaviour
 
     void MoveCamera()
     {
-        if (movePlayer.PlayerPosition.y < skyPosition && movePlayer.PlayerPosition.y > groundPosition)
+
+        if (GameManager.instance.axe == 1)
         {
-            axe = 1;
-            if (transform.position.y > middleAxesPosition)
-            {
-                transform.Translate(Vector3.down * cameraSpeed * Time.deltaTime);
-            }
-            if (transform.position.y < middleAxesPosition)
-            {
-                transform.Translate(Vector3.up * cameraSpeed * Time.deltaTime);
-            }
+
+            DOTween.To(() => transform.position, y => transform.position = y, new Vector3(transform.position.x, middleAxesPosition, transform.position.z), transitionTime);
+
         }
 
-        if (movePlayer.PlayerPosition.y > skyPosition) {
-            axe = 2;
-            transform.position = new Vector3(transform.position.x, topAxesPosition, transform.position.z);
+        if (GameManager.instance.axe == 2) {
+            DOTween.To(() => transform.position, y => transform.position = y, new Vector3(transform.position.x, topAxesPosition, transform.position.z), transitionTime);
+
         }
 
-        if (movePlayer.PlayerPosition.y < groundPosition)
+        if (GameManager.instance.axe == 0)
         {
-            axe = 0;
-            transform.position = new Vector3(transform.position.x, bottomAxesPosition, transform.position.z);
+            DOTween.To(() => transform.position, y => transform.position = y, new Vector3(transform.position.x, bottomAxesPosition, transform.position.z), transitionTime);
+
         }
     }
 }

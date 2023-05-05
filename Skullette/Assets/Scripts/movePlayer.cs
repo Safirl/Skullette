@@ -86,6 +86,15 @@ public class movePlayer : MonoBehaviour
         }
     }
 
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("Ground"))
+        {
+            isOnGround = true;
+        }
+    }
+
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Platform"))
@@ -125,13 +134,13 @@ public class movePlayer : MonoBehaviour
 
         if (switchBonus == true && (bonusTimer < bonusOver))
         {
-            if (Input.GetKeyDown(KeyCode.UpArrow) && GameManager.instance.axe != 2)
+            if (Input.GetKeyDown(KeyCode.UpArrow) && GameManager.instance.axe != 2 && isOnGround == true)
             {
                 playerRigidBody.velocity = Vector2.up * switchUpStrenght;
                 isOnGround = false;
             }
 
-            if (Input.GetKeyDown(KeyCode.DownArrow) && GameManager.instance.axe != 0)
+            if (Input.GetKeyDown(KeyCode.DownArrow) && GameManager.instance.axe != 0 && isOnGround == true)
             {
                 if (GameManager.instance.axe == 1)
                 {

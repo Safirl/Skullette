@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3440678678112097494}
   - component: {fileID: 3440678678112097493}
+  - component: {fileID: 5770770715326819473}
   m_Layer: 0
   m_Name: SpawnManager
   m_TagString: Untagged
@@ -52,4 +53,27 @@ MonoBehaviour:
   - {fileID: 776984471040334226, guid: 94e2a2fb1828e461c88317b15ad09532, type: 3}
   - {fileID: 4405711761377723233, guid: 1062193c87b50486cb337482bbc0b063, type: 3}
   - {fileID: 5055010110918947298, guid: 98943dec4d11149e2a530b244a161fe8, type: 3}
+  Ground:
+  - {fileID: 4698802360940357069, guid: fc207a2a8b439427f9004edf294cf679, type: 3}
+  background: {fileID: 6866625864129552011, guid: 3d09775e174c5491e9c6476ff280ecf2, type: 3}
+  timer: 0
+  spawnTimer: 0
   noBonusTime: 20
+  skyGroundDelay: 0
+  skyGroundTimer: 0
+  skyGroundPos: 7.79
+  obstacleIndex: 0
+--- !u!114 &5770770715326819473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3440678678112097495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 685feae6686304c5387003bcdd7792f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Ground:
+  - {fileID: 1113663964269056601, guid: 746e0621e8cf74cdc82b524ab157fd1a, type: 3}

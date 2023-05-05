@@ -46,6 +46,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movePlayer: {fileID: 0}
   globalSpeed: 5
+  groundSpeed: 6
   axe: 1
+  skyPosition: 8.4
+  groundPosition: -1
   timer: 0
   increaseSpeed: 5
