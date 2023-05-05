@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour
         {
             
             timer += Time.deltaTime;
-            Debug.Log(timer);
+//            Debug.Log(timer);
             if (timer >= increaseSpeed && globalSpeed <= 22)
             {
                 globalSpeed += 1;
