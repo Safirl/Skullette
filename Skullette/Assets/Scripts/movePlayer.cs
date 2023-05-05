@@ -27,9 +27,12 @@ public class movePlayer : MonoBehaviour
 
     private Animator animator;
 
+    private Quaternion startRotation;
+
     // Start is called before the first frame update
     void Start()
     {
+        startRotation = transform.rotation;
         isPlayerAlive = true;
         score = 0;
         scoreInt = 0;
@@ -86,6 +89,7 @@ public class movePlayer : MonoBehaviour
                 Destroy(collision.gameObject);
                 invincibilityBonus = false;
                 animator.SetBool("isInvincibleBonusActivated", invincibilityBonus);
+
             }
         }
         if (collision.collider.CompareTag("Ground"))
@@ -129,6 +133,7 @@ public class movePlayer : MonoBehaviour
         {
             
             switchBonus = true;
+            transform.rotation = startRotation;
             animator.SetBool("isSwitchBonusActivated", switchBonus);
             bonusTimer = 0;
             Destroy(other.gameObject);
@@ -139,6 +144,7 @@ public class movePlayer : MonoBehaviour
         {
 
             invincibilityBonus = true;
+            transform.rotation = startRotation;
             animator.SetBool("isInvincibleBonusActivated", invincibilityBonus);
             bonusTimer = 0;
             Destroy(other.gameObject);
@@ -179,7 +185,6 @@ public class movePlayer : MonoBehaviour
         {
             switchBonus = false;
             animator.SetBool("isSwitchBonusActivated", switchBonus);
-
         }
     }
 }
