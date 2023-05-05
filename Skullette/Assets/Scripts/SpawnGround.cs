@@ -20,15 +20,14 @@ public class SpawnGround : MonoBehaviour
 
     void MakeSpawnGround()
     {
-        float groundDelay = 2f;
+        float groundDelay = 0.5f;
         
         groundTimer += Time.deltaTime;
-        Debug.Log(groundTimer);
         float groundPos = -1.96f;
         float bottomGroundPos = -11.11f;
 
 
-        Vector3 spawnGroundPos = new Vector3(20, groundPos, 1);
+        Vector3 spawnGroundPos = new Vector3(20f, groundPos, 1);
         Vector3 spawnBottomGroundPos = new Vector3(20f, bottomGroundPos, 1);
 
 
