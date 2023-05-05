@@ -150,10 +150,10 @@ public class SpawnManager : MonoBehaviour
 
     void SpawnSkyGround()
     {
-        skyGroundDelay = Random.Range(4f, 5f);
+        skyGroundDelay = Random.Range(2f, 3f);
         skyGroundTimer += Time.deltaTime;
 
-        Vector3 spawnSkyGroundPos = new Vector3(25, skyGroundPos, 0);
+        Vector3 spawnSkyGroundPos = new Vector3(20, skyGroundPos, 0);
 
 
         if (skyGroundTimer > skyGroundDelay)
