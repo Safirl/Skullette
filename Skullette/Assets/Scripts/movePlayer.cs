@@ -127,6 +127,9 @@ public class movePlayer : MonoBehaviour
             switchBonus = true;
             bonusTimer = 0;
             Destroy(other.gameObject);
+            Debug.Log("SWITCH BONYS");
+            SfxManager.sfxInstance.Audio.PlayOneShot(SfxManager.sfxInstance.sonOs);
+
         }
         if (other.CompareTag("InvincibleBonus"))
         {
@@ -134,6 +137,9 @@ public class movePlayer : MonoBehaviour
             invincibilityBonus = true;
             bonusTimer = 0;
             Destroy(other.gameObject);
+            Debug.Log("INV BONYS");
+            SfxManager.sfxInstance.Audio.PlayOneShot(SfxManager.sfxInstance.sonOs);
+
         }
     }
 
