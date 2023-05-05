@@ -93,6 +93,7 @@ public class SpawnManager : MonoBehaviour
                 if (GameManager.instance.axe == 1)
                 {
                     posSpawner = 0.23f;
+                    InstantiateSequence(obstacleIndex, posSpawner);
 
                 }
 
@@ -109,6 +110,8 @@ public class SpawnManager : MonoBehaviour
                     else
                     {
                         posSpawner = 9.135f;
+                        InstantiateSequence(obstacleIndex, posSpawner);
+
                     }
                 }
 
@@ -122,10 +125,10 @@ public class SpawnManager : MonoBehaviour
                     else
                     {
                         posSpawner = -8.96f;
+                        InstantiateSequence(obstacleIndex, posSpawner);
 
                     }
                 }
-                InstantiateSequence(obstacleIndex, posSpawner);
             }
         }
 
