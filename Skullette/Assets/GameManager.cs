@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
         {
             Destroy(this);
         }
+        globalSpeed = 5f;
     }
 
     // Update is called once per frame
@@ -59,15 +60,12 @@ public class GameManager : MonoBehaviour
     {
         if (movePlayer.isPlayerAlive == true)
         {
-            groundSpeed = 3f;
+            
             timer += Time.deltaTime;
+            Debug.Log(timer);
             if (timer >= increaseSpeed && globalSpeed <= 22)
             {
                 globalSpeed += 1;
-                timer = 0;
-            }
-            else
-            {
                 timer = 0;
             }
         }
