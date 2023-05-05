@@ -1898,7 +1898,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1, y: 71}
+  m_AnchoredPosition: {x: 1, y: 19}
   m_SizeDelta: {x: 618.28, y: 446.61}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1878829129
@@ -1923,7 +1923,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: b043ae16909c349dbbe4eb750332ce5c, type: 3}
-    m_FontSize: 17
+    m_FontSize: 23
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
@@ -1934,13 +1934,13 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sit amet
-    dui sed nisi molestie hendrerit. Pellentesque malesuada gravida velit, non sodales
-    elit dignissim sit amet. \n\nLorem ipsum dolor sit amet, consectetur adipiscing
-    elit. Duis sit amet dui sed nisi molestie hendrerit. Pellentesque malesuada gravida
-    velit, non sodales elit dignissim sit amet. \n\nLorem ipsum dolor sit amet, consectetur
-    adipiscing elit. Duis sit amet dui sed nisi molestie hendrerit. Pellentesque
-    malesuada gravida velit, non sodales elit dignissim sit amet. "
+  m_Text: "Apr\xE8s la fin de la guerre, Skulleton, de son vrai nom Anton Gora, obtient
+    une tombe comm\xE9morative au milieu de celles des autres soldats tomb\xE9s au
+    combat. \nQuelques ann\xE9es plus tard, par une nuit de pleine lune, Anton revient
+    d\u2019entre les morts. Il se r\xE9veille, sort du sol, mais il ne se rappelle
+    plus qui il est, ni o\xF9 il est. Tous ses souvenirs sont confus, comme intouchables.
+    Il a juste un fort pressentiment qu\u2019il doit s\u2019\xE9chapper de ce cimeti\xE8re
+    \u2026"
 --- !u!222 &1878829130
 CanvasRenderer:
   m_ObjectHideFlags: 0
