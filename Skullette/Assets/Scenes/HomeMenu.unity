@@ -990,9 +990,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "ALEXANDRU Coralie : Designer, Level Designer\nBENAZZA Goufrane : Sound
+  m_Text: "ALEXANDRU Coralie : Graphiste, Level Designer\nBENAZZA Goufrane : Sound
     designer, Game Designer\nLEFORESTIER Lo\xEFc : Game developer, Level Designer\nMARCHAND
-    Matthieu : Designer, Game developer\nTRAN QUANG Thai-Son : Game developer, Game
+    Matthieu : Graphiste, Game developer\nTRAN QUANG Thai-Son : Game developer, Game
     designer"
 --- !u!222 &642361124
 CanvasRenderer:
