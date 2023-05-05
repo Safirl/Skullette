@@ -25,12 +25,15 @@ public class movePlayer : MonoBehaviour
     public float score = 0f;
     public int scoreInt = 0;
 
+    private Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
         isPlayerAlive = true;
         score = 0;
         scoreInt = 0;
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -82,6 +85,7 @@ public class movePlayer : MonoBehaviour
             {
                 Destroy(collision.gameObject);
                 invincibilityBonus = false;
+                animator.SetBool("isInvincibleBonusActivated", invincibilityBonus);
             }
         }
         if (collision.collider.CompareTag("Ground"))
@@ -125,9 +129,9 @@ public class movePlayer : MonoBehaviour
         {
             
             switchBonus = true;
+            animator.SetBool("isSwitchBonusActivated", switchBonus);
             bonusTimer = 0;
             Destroy(other.gameObject);
-            Debug.Log("SWITCH BONYS");
             SfxManager.sfxInstance.Audio.PlayOneShot(SfxManager.sfxInstance.sonOs);
 
         }
@@ -135,9 +139,9 @@ public class movePlayer : MonoBehaviour
         {
 
             invincibilityBonus = true;
+            animator.SetBool("isInvincibleBonusActivated", invincibilityBonus);
             bonusTimer = 0;
             Destroy(other.gameObject);
-            Debug.Log("INV BONYS");
             SfxManager.sfxInstance.Audio.PlayOneShot(SfxManager.sfxInstance.sonOs);
 
         }
@@ -174,6 +178,8 @@ public class movePlayer : MonoBehaviour
         else
         {
             switchBonus = false;
+            animator.SetBool("isSwitchBonusActivated", switchBonus);
+
         }
     }
 }
