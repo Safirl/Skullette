@@ -22,10 +22,15 @@ public class movePlayer : MonoBehaviour
     public bool switchBonus = false;
     public bool invincibilityBonus = false;
 
+    public float score = 0f;
+    public int scoreInt = 0;
+
     // Start is called before the first frame update
     void Start()
     {
-        isPlayerAlive = true; 
+        isPlayerAlive = true;
+        score = 0;
+        scoreInt = 0;
     }
 
     // Update is called once per frame
@@ -39,15 +44,22 @@ public class movePlayer : MonoBehaviour
         }
 
         PlayerPosition = transform.position;
+
         //Permet au joueur de sauter
         if (isPlayerAlive)
         {
+            score += 1 * Time.deltaTime;
+            scoreInt = Mathf.RoundToInt(score);
+
             if (Input.GetKeyDown(KeyCode.Space) == true && isOnGround == true)
             {
                 playerRigidBody.velocity = Vector2.up * jumpStrenght;
 
             }
             BonusActivated();
+
+            score += 1 * Time.deltaTime;
+            scoreInt = Mathf.RoundToInt(score);
         }
         else
         {

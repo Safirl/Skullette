@@ -19,7 +19,7 @@ TagManager:
   - UI
   - Obstacle
   - Ground
-  - 
+  - Score
   - 
   - 
   - 
@@ -52,4 +52,7 @@ TagManager:
     locked: 0
   - name: Ground
     uniqueID: 3813344135
+    locked: 0
+  - name: Score
+    uniqueID: 4144899029
     locked: 0

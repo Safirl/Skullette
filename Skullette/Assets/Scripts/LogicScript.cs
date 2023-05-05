@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class LogicScript : MonoBehaviour
 {
-    public GameObject gameObject; 
+    public GameObject gameObject;
 
     // Start is called before the first frame update
     void Start()
