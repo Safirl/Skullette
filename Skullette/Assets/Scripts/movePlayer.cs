@@ -42,6 +42,7 @@ public class movePlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(scoreInt);
 
         if (isPlayerAlive && invincibilityBonus == false && switchBonus == false)
         {
@@ -150,6 +151,13 @@ public class movePlayer : MonoBehaviour
             Destroy(other.gameObject);
             SfxManager.sfxInstance.Audio.PlayOneShot(SfxManager.sfxInstance.sonOs);
 
+        }
+        if (other.CompareTag("BonusPoint"))
+        {
+            scoreInt += 1000;
+            Debug.Log(scoreInt);
+            Destroy(other.gameObject);
+            SfxManager.sfxInstance.Audio.PlayOneShot(SfxManager.sfxInstance.sonOs);
         }
     }
 
